@@ -8,6 +8,9 @@ if _G.Key == "1234" then
     keychecked = true
 else
     plr:kick("Wrong Key, Stupid")
+    Fluent.Visible = false
+    SaveManager.Visible = false
+    InterfaceManager.Visible = false
 end
 
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Fluent/Library.lua"))()
