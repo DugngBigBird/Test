@@ -1,3 +1,15 @@
+local keychecked = false
+local hwid = nill
+local hwidplr = game:GetService("RbxAnalyticsService"):GetClientId()
+plr = game.Players.LocalPlayer
+
+if _G.Key == "1234" then
+    hwid = "Whitelisted"
+    keychecked = true
+else
+    plr:kick("Wrong Key, Stupid")
+end
+
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/main/Main/UI/Fluent/Library.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -8,7 +20,7 @@ local Window = Fluent:CreateWindow({
     TabWidth = 155,
     Size = UDim2.fromOffset(500, 320),
     Acrylic = false,
-    Theme = "Green",
+    Theme = "White",
     MinimizeKey = Enum.KeyCode.End
 })
 print("Bendru Hub Loading...")
@@ -2840,7 +2852,7 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
 
     local ToggleMasteryFruit = Tabs.Main:AddToggle("ToggleMasteryFruit", {
         Title = "Auto BF Mastery",
-        Description = "CÃ y ThÃ´ng Tháº¡o TrÃ¡i", 
+        Description = "CÃƒ y ThÃƒÂ´ng ThÃ¡ÂºÂ¡o TrÃƒÂ¡i", 
         Default = false })
     ToggleMasteryFruit:OnChanged(function(Value)
         AutoFarmMasDevilFruit = Value
@@ -3119,7 +3131,7 @@ spawn(function()
 			elseif string.len(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")) == 86 then
 				Mob_Kill_Cake_Prince:SetDesc("Kill : "..string.sub(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner"),39,39).." ")
 			else
-				Mob_Kill_Cake_Prince:SetDesc("Cake Prince : ðŸŸ¢yes")
+				Mob_Kill_Cake_Prince:SetDesc("Cake Prince : Ã°Å¸Å¸Â¢yes")
 			end
 		end)
 	end
@@ -3360,7 +3372,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 
     local ToggleMaterial = Tabs.Main:AddToggle("ToggleMaterial", {
         Title = "Auto Material",
-        Description = "CÃ y NguyÃªn Liá»‡u", 
+        Description = "CÃƒ y NguyÃƒÂªn LiÃ¡Â»â€¡u", 
         Default = false })
 
     ToggleMaterial:OnChanged(function(Value)
@@ -3424,9 +3436,9 @@ local StatusKitsune = Tabs.Main:AddParagraph({
 })
 function UpdateKitsune()
     if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island') then
-        StatusKitsune:SetDesc("Kitsune Island : ðŸŸ¢ Spawned")
+        StatusKitsune:SetDesc("Kitsune Island : Ã°Å¸Å¸Â¢ Spawned")
     else
-        StatusKitsune:SetDesc("Kitsune Island : ðŸ”´ None")
+        StatusKitsune:SetDesc("Kitsune Island : Ã°Å¸â€Â´ None")
      end
 end
 spawn(function()
@@ -4005,9 +4017,9 @@ spawn(function()
         while wait() do
             pcall(function()
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
-                    StatusElite:SetDesc("Elite Boss : ðŸŸ¢ Spawned  "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))	
+                    StatusElite:SetDesc("Elite Boss : Ã°Å¸Å¸Â¢ Spawned  "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))	
                 else
-                    StatusElite:SetDesc("Elite Boss : ðŸ”´ None | Killed: "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))	
+                    StatusElite:SetDesc("Elite Boss : Ã°Å¸â€Â´ None | Killed: "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress"))	
                 end
             end)
         end
@@ -4235,9 +4247,9 @@ ToggleAutoW:OnChanged(function(Value)
         while task.wait() do
             pcall(function()
             if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
-                MirageStatus = "Mirage Island : ðŸŸ¢ Spawned"
+                MirageStatus = "Mirage Island : Ã°Å¸Å¸Â¢ Spawned"
             else
-                MirageStatus = 'Mirage Island : ðŸ”´ None'
+                MirageStatus = 'Mirage Island : Ã°Å¸â€Â´ None'
              end
         end)
      end
@@ -4883,7 +4895,7 @@ SliderPosY:SetValue(15)
 
 local SliderPosZ = Tabs.Setting:AddSlider("SliderPosZ", {
     Title = "Pos Z",
-    Description = "HÆ°á»›ng Z",
+    Description = "HÃ†Â°Ã¡Â»â€ºng Z",
     Default = 15,
     Min = -60,
     Max = 60,
@@ -5602,7 +5614,7 @@ elseif Third_Sea then
 
 local DropdownIsland = Tabs.Teleport:AddDropdown("DropdownIsland",{
     Title = "Dropdown",
-    Description = "Chá»n Äáº£o",
+    Description = "ChÃ¡Â»Ân Ã„ÂÃ¡ÂºÂ£o",
     Values = IslandList,
     Multi = false,
     Default = 1,
@@ -6025,7 +6037,7 @@ local Chips = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","B
 
 local DropdownRaid = Tabs.Raid:AddDropdown("DropdownRaid", {
     Title = "Select Chip",
-    Description = "Chá»n Chip",
+    Description = "ChÃ¡Â»Ân Chip",
     Values = Chips,
     Multi = false,
     Default = 1,
@@ -7154,7 +7166,7 @@ Tabs.Misc:AddButton({
 		Fragments.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
 		Fragments.Position = UDim2.new(0, 0, -0.75, 0)
 		Fragments.Size = UDim2.new(1, 0, 1, 0)
-		Fragments.Text = 'Æ’' .. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
+		Fragments.Text = 'Ã†â€™' .. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
 		local args = {
 			[1] = "getAwakenedAbilities"
 		}
