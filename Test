@@ -884,7 +884,7 @@ end
 end
 
 getgenv().AutoLevel = Value
-        if Value == false then
+        if Value == true then
             wait()
             toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
             wait()
@@ -950,6 +950,13 @@ tableMon = {
 }
 end
 
+--auto turn haki
+function AutoHaki()
+    if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HasBuso") then
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+    end
+end
+
 if getgenv().AutoLevel then
     FarmLevel.Visible = true
     for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -959,3 +966,24 @@ if getgenv().AutoLevel then
             end
         end
     end
+
+getgenv().BringMob = Value
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if getgenv().BringMob and bringmob then
+                for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                    if v.Name == MonFarm and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 315 then
+                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                        v.HumanoidRootPart.CanCollide = false
+                        v.Head.CanCollide = false
+                        v.HumanoidRootPart.CFrame = FarmPos
+                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+BypassTP = Value
